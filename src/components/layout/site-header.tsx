@@ -9,6 +9,7 @@ const navigation = [
   { href: "#how-it-works", label: "How it works" },
   { href: "#features", label: "Features" },
   { href: "/gap-report", label: "Sample report" },
+  { href: "/dashboard", label: "Demo mode" },
 ];
 
 export function SiteHeader() {
@@ -35,6 +36,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <Link className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-violet-300/30 bg-violet-300/10 px-3.5 py-1.5 text-xs font-semibold text-violet-200 transition hover:bg-violet-300/20" href="/dashboard">
+            <Sparkles aria-hidden="true" size={14} /> Demo mode
+          </Link>
           <Link className="rounded-md px-3 py-2 text-sm text-slate-300 transition hover:text-white" href="/auth/sign-in">Sign in</Link>
           <Link className="inline-flex min-h-10 items-center gap-2 rounded-full bg-violet-300 px-4 text-sm font-semibold text-[#11101c] transition hover:bg-violet-200" href="/auth/sign-up">
             Get started <ArrowUpRight aria-hidden="true" size={15} />

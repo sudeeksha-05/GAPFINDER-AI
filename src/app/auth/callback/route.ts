@@ -5,9 +5,9 @@ export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get("code");
   const destination = request.nextUrl.searchParams.get("next");
   const next =
-    destination?.startsWith("/workspace") || destination === "/auth/update-password"
+    destination?.startsWith("/workspace") || destination?.startsWith("/dashboard") || destination === "/auth/update-password"
       ? destination
-      : "/workspace/dashboard";
+      : "/dashboard";
 
   if (!code) {
     return NextResponse.redirect(new URL("/auth/sign-in?error=confirmation", request.url));

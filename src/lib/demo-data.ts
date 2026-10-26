@@ -29,6 +29,7 @@ export type Topic = {
   sourceLocation: string;
   observedGap: string;
   suggestedAction: string;
+  evidenceExcerpt: string;
 };
 
 export type SampleQuestion = {
@@ -126,6 +127,7 @@ function createSubject(
     sourceLocation: seed.location,
     observedGap: seed.gap,
     suggestedAction: seed.action,
+    evidenceExcerpt: seed.gap,
   }));
   const topicByName = new Map(topics.map((topic) => [topic.name, topic]));
   const questionSeeds: QuestionSeed[] = [
