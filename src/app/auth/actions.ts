@@ -57,7 +57,7 @@ export async function signInAction(
     };
   }
 
-  redirect("/workspace/dashboard");
+  redirect("/dashboard");
 }
 
 export async function signUpAction(
@@ -78,7 +78,7 @@ export async function signUpAction(
       password: parsed.data.password,
       options: {
         data: { display_name: parsed.data.displayName },
-        emailRedirectTo: authCallbackUrl("/workspace/dashboard"),
+        emailRedirectTo: authCallbackUrl("/dashboard"),
       },
     });
     if (error) return { message: error.message, error: true };
@@ -95,7 +95,7 @@ export async function signUpAction(
     };
   }
 
-  redirect("/workspace/dashboard");
+  redirect("/dashboard");
 }
 
 export async function requestPasswordResetAction(
@@ -159,7 +159,7 @@ export async function updatePasswordAction(
     };
   }
 
-  redirect("/workspace/dashboard");
+  redirect("/dashboard");
 }
 
 export async function signOutAction() {
@@ -202,6 +202,7 @@ export async function saveStudyGoalAction(input: unknown) {
       p_topic_ids: parsed.data.selectedTopicIds,
     });
     if (error) return { error: error.message };
+    revalidatePath("/dashboard");
     revalidatePath("/workspace/dashboard");
     revalidatePath("/onboarding");
     return { error: null };
