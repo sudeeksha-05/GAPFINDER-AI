@@ -40,7 +40,7 @@ export function OnboardingFlow({ initialGoal }: { initialGoal?: StudyGoal }) {
         setSaveError(result.error);
         return;
       }
-      router.replace("/workspace/dashboard");
+      router.replace("/dashboard");
     });
   }
 
