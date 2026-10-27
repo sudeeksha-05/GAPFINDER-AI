@@ -3,6 +3,7 @@
 import { ArrowUpRight, Menu, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   { href: "#product", label: "Product" },
@@ -36,6 +37,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <Link className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-violet-300/30 bg-violet-300/10 px-3.5 py-1.5 text-xs font-semibold text-violet-200 transition hover:bg-violet-300/20" href="/dashboard">
             <Sparkles aria-hidden="true" size={14} /> Demo mode
           </Link>
@@ -64,7 +66,11 @@ export function SiteHeader() {
             ) : (
               <Link className="rounded-xl px-3 py-3 text-sm text-slate-200 hover:bg-white/[0.05]" href={item.href} key={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
             ))}
-            <div className="my-2 h-px bg-white/[0.07]" />
+            <div className="my-2 flex items-center justify-between px-3 py-2">
+              <span className="text-xs text-slate-400">Theme</span>
+              <ThemeToggle />
+            </div>
+            <div className="my-1 h-px bg-white/[0.07]" />
             <Link className="rounded-xl px-3 py-3 text-sm text-slate-200 hover:bg-white/[0.05]" href="/auth/sign-in" onClick={() => setMenuOpen(false)}>Sign in</Link>
             <Link className="mt-1 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-violet-300 px-4 text-sm font-semibold text-[#11101c]" href="/auth/sign-up" onClick={() => setMenuOpen(false)}>Get started <ArrowUpRight aria-hidden="true" size={15} /></Link>
           </div>
