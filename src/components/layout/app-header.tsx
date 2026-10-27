@@ -3,6 +3,7 @@
 import { Bell, ChevronDown } from "lucide-react";
 import { useStudyDemo } from "@/components/study-demo-provider";
 import { SUBJECT_OPTIONS } from "@/lib/demo-data";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function AppHeader({ title }: { title: string }) {
   const { goal, setSubject } = useStudyDemo();
@@ -31,6 +32,7 @@ export function AppHeader({ title }: { title: string }) {
         <span className="rounded-full border border-violet-300/15 bg-violet-300/[0.07] px-2.5 py-1 text-[10px] font-semibold tracking-wider text-violet-100 sm:text-xs">
           DEMO
         </span>
+        <ThemeToggle />
         <button aria-label="Notifications are not available in this demo" className="hidden size-9 cursor-not-allowed items-center justify-center rounded-xl border border-white/[0.07] text-slate-500 sm:flex" disabled>
           <Bell aria-hidden="true" size={16} />
         </button>
